@@ -146,6 +146,10 @@ AC_ARG_ENABLE(rfxcodec, AS_HELP_STRING([--disable-rfxcodec],
               [], [enable_rfxcodec=yes])
 AM_CONDITIONAL(XRDP_RFXCODEC, [test x$enable_rfxcodec = xyes])
 
+AC_CHECK_LIB([cairo], [cairo_create], [CAIRO_LIBS=-lcairo],
+	     AC_MSG_ERROR("need lib cairo"))
+AC_SUBST(CAIRO_LIBS)
+
 # Don't fail without working nasm if rfxcodec is not enabled
 if test "x$enable_rfxcodec" != xyes; then
   with_simd=no

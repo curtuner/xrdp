@@ -37,6 +37,9 @@
 #include "xrdp_encoder.h"
 #include "xrdp_sockets.h"
 
+// add library cairo
+#include <cairo/cairo.h>
+
 #define LLOG_LEVEL 1
 #define LLOGLN(_level, _args) \
   do \
@@ -2388,6 +2391,9 @@ server_begin_update(struct xrdp_mod *mod)
     p = xrdp_painter_create(wm, wm->session);
     xrdp_painter_begin_update(p);
     mod->painter = (long)p;
+
+    // curt
+    mod->recording_fd = g_file_open("/tmp/recording.txt");    
     return 0;
 }
 

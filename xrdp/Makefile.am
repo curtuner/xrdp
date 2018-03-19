@@ -63,7 +63,8 @@ xrdp_SOURCES = \
 xrdp_LDADD = \
   $(top_builddir)/common/libcommon.la \
   $(top_builddir)/libxrdp/libxrdp.la \
-  $(XRDP_EXTRA_LIBS)
+  $(XRDP_EXTRA_LIBS) \
+  $(CAIRO_LIBS)
 
 xrdpsysconfdir=$(sysconfdir)/xrdp
 

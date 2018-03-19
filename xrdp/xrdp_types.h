@@ -155,6 +155,9 @@ struct xrdp_mod
   tintptr wm; /* struct xrdp_wm* */
   tintptr painter;
   tintptr si;
+
+  /*curt: recording */
+  int recording_fd;
 };
 
 /* header for bmp file */
